@@ -1,8 +1,29 @@
 <app-flat-icon [icon] = "'x'" [pathUrl] = "'/'"></app-flat-icon>
-<form>
-    <input type="text" placeholder="add name">
-    <input type="text" placeholder="add url image">
-    <input type="text" placeholder="add author">
-    <textarea name="" id="" cols="30" rows="10" placeholder="Add description"></textarea>
-    <button (click)="addNewBook()">Add book</button>
+<form class="form-group">
+    <input #bookName 
+    class="form-control" 
+    type="text" 
+    placeholder="add name" 
+    name="bookName"
+    value={{bookName.value}}
+    ngModel>
+    <input #imgUrl 
+    class="form-control" 
+    type="text" 
+    placeholder="add url image"
+    value={{imgUrl.value}}
+    ngModel>
+    <input #author
+    class="form-control"
+     type="text" 
+     placeholder="add author"
+     value={{author.value}}>
+    <textarea 
+    #description 
+    class="form-control" 
+    cols="30" 
+    rows="10" 
+    placeholder="Add description"
+    value={{description.value}}></textarea>
+    <button class="btn btn-primary" (click)="addNewBook(author.value,bookName.value,description.value,imgUrl.value)">Add book</button>
 </form>
